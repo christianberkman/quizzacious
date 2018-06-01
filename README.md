@@ -8,14 +8,14 @@ Working as a missionary at an NGO in Uganda we sometimes host quizzes. I was loo
 ### What is Working
 * Can dynamically create teams from main screen
 * Main screen displays teams and displays points
-* Points can be added from the main screen and is added instantly
+* Points can be added and reduced from Main Screen Modals, points are updated instantly
 
 ### What is not working
 * Small gui-design flaws
 * FontAwesome does not show nicely yet
 
 ### What will work
-* Reducing points from main screen
+* ~~Reducing points from main screen~~ done
 * Setting points from main screen
 * Removing team from main screen
 * External screen

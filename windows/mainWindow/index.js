@@ -11,14 +11,17 @@
 //
 // Events
 //
-ipcRenderer.on('team-created', function(events, args){
-  renderNewTeam(args[0])
-  updateTeam(args[0])
-})
+  // Ready
+  $('#addTeamName').focus()
 
-ipcRenderer.on('team-updated', function(events, args){
-  updateTeam(args[0])
-})
+  ipcRenderer.on('team-created', function(events, args){
+    renderNewTeam(args[0])
+    updateTeam(args[0])
+  })
+
+  ipcRenderer.on('team-updated', function(events, args){
+    updateTeam(args[0])
+  })
 
 //
 // Add Team
@@ -64,6 +67,9 @@ ipcRenderer.on('team-updated', function(events, args){
 // Points
 //
 $('.reduce-points').click(function(){
+  teamId = $(this).closest('.team').data('id')
+  teamObj = teamManager.getTeamObj(teamId)
+  windowManager.modalReducePoints(teamObj)
 })
 
 $('.add-points').click(function(){

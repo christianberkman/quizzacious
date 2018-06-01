@@ -14,7 +14,7 @@ console.log('windowManager loaded')
 //
   module.exports = {
     createMain, sendMain, closeMain,
-    closeMainModal, modalAddPoints
+    closeMainModal, modalAddPoints, modalReducePoints
   }
 
 //
@@ -106,6 +106,17 @@ console.log('windowManager loaded')
     function modalAddPoints(teamObj){
       createMainModal()
       mainModal.loadURL('file://' + path.resolve(__dirname, 'windows/mainModal/addPoints.html'))
+
+      mainModal.once('ready-to-show', () =>{
+        mainModal.send('teamObj', teamObj)
+        mainModal.show()
+      })
+    }
+
+    // Modal Reduce Points
+    function modalReducePoints(teamObj){
+      createMainModal()
+      mainModal.loadURL('file://' + path.resolve(__dirname, 'windows/mainModal/reducePoints.html'))
 
       mainModal.once('ready-to-show', () =>{
         mainModal.send('teamObj', teamObj)
