@@ -1,0 +1,21 @@
+{
+  "name": "Quizzacious",
+  "version": "0.0.1",
+  "description": "A offline, multiple screen score board for quizzes",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngoldman/electron-multiple-windows-demo.git"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Christian Berkman",
+  "license": "CC-BY-4.0",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

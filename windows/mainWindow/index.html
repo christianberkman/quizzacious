@@ -1,0 +1,39 @@
+<html>
+  <body>
+    <head>
+      <link href="../../assets/bootstrap.min.css" rel="stylesheet" />
+      <link href="../../assets/quizz.css" rel="stylesheet" />
+      <link href="../../assets/font-awesome.min.css" rel="stylesheet" />
+    </head>
+    <body>
+
+      <div class="container-fluid">
+        <h1 class="display-2 text-center">Quizzaciuos</h1>
+      </div>
+
+      <div class="container-fluid">
+        <form id="addTeam" action="#" class="form text-center">
+
+            <input id="addTeamName" class="form-control-lg text-center" maxlength="24"/>
+            <input type="submit" class="btn btn-lg btn-success ml-1" style="margin-top: -5px" value="Add Team" />
+
+        </form>
+      </div>
+
+      <div class="container-fluid">
+        <div id="teams" class="row">
+          <div id="teamProto" class="team col-md-5 col-lg-4 mb-3">
+            <div class="bg-primary p-3">
+              <h3 class="text-center">Team Name</h3>
+              <h4 class="text-center"><span>0</span> Points</h4>
+              <div class="text-center">
+                <a href="#" class="btn btn-lg btn-danger reduce-points"><i class="fa fa-minus"></i></a>&nbsp;
+                <a href="#" class="btn btn-lg btn-success add-points"><i class="fa fa-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div><!--/row-->
+      </div><!--/container-fluid-->
+    </body>
+</html>
+<script>require('./index')</script>

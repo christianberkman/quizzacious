@@ -1,0 +1,16 @@
+/* @@@ Team @@@ */
+#teamProto{
+  display: none;
+}
+
+body{
+  user-select: none;
+  cursor: default;
+}
+
+
+input{
+  user-select: auto;
+  cursor: auto;
+  border: 0;
+}
