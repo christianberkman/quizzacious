@@ -14,7 +14,7 @@
 // Events
 //
   // Ready
-  $('#addPoints').focus()
+  $('#reducePoints').focus()
 
   // Receive Team Object
   ipcRenderer.on('teamObj', function(events, argTeamObj){
@@ -24,12 +24,12 @@
 
   // Form Submit
   $('form').submit(function(){
-    // Add the points
-      addPoints = $('#addPoints').val()
-      addSuccess = teamManager.addPoints(teamObj.id, addPoints)
+    // Reduce the points
+      reducePoints = $('#reducePoints').val()
+      reduceSuccess = teamManager.reducePoints(teamObj.id, reducePoints)
 
     // Success? Close Modal
-    if(addSuccess){
+    if(reduceSuccess){
       windowManager.closeMainModal()
       return false;
     }
@@ -50,10 +50,3 @@
     $('h2').html(teamObj.name)
     $('h4 .points').html(teamObj.points)
   }
-
-//
-// Debug
-//
-$('h2').click(function(){
-  windowManager.closeMainModal()
-})
