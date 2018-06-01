@@ -3,15 +3,13 @@ console.log('teamManager loaded')
 // Dependencies and Requirements
 //
   // Electron
-  var electron = require('electron')
-  var app = electron.app
   var path = require('path')
 
 //
 //  Module exports
 //
   module.exports = {
-    addTeam, getTeamObj, printTeams,
+    addTeam, getTeamObj,
     addPoints
   }
 
@@ -79,7 +77,6 @@ console.log('teamManager loaded')
 //
 // Point functions
 //
-
   // Add Points
   function addPoints(teamId, points){
     //console.log('teamManager.addPoints called')
@@ -99,11 +96,4 @@ console.log('teamManager loaded')
 
     // Done
     return true
-  }
-
-//
-// Print teams
-//
-  function printTeams(){
-    console.log(teams)
   }

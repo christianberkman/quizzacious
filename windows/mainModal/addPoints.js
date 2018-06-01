@@ -2,9 +2,7 @@
 // Requirements and Dependencies
 //
   var electron = require('electron')
-  var app = electron.remote.app
   var ipcRenderer = electron.ipcRenderer
-  var path = require('path')
 
   var windowManager = require('electron').remote.require('./windowManager')
   var teamManager = require('electron').remote.require('./teamManager')
