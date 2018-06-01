@@ -31,6 +31,8 @@ console.log('windowManager loaded')
       title: 'Quizz Main Window',
       width: 600,
       height: 600,
+      minWidth: 440,
+      minHeight: 500,
       x: 0,
       y: 0,
       devTools: true,
