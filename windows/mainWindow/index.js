@@ -72,6 +72,12 @@ $('.reduce-points').click(function(){
   windowManager.modalReducePoints(teamObj)
 })
 
+$('.set-points').click(function(){
+  teamId = $(this).closest('.team').data('id')
+  teamObj = teamManager.getTeamObj(teamId)
+  windowManager.modalSetPoints(teamObj)
+})
+
 $('.add-points').click(function(){
   teamId = $(this).closest('.team').data('id')
   teamObj = teamManager.getTeamObj(teamId)

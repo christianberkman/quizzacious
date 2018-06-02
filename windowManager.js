@@ -14,7 +14,7 @@ console.log('windowManager loaded')
 //
   module.exports = {
     createMain, sendMain, closeMain,
-    closeMainModal, modalAddPoints, modalReducePoints
+    closeMainModal, modalAddPoints, modalSetPoints, modalReducePoints
   }
 
 //
@@ -28,18 +28,18 @@ console.log('windowManager loaded')
     console.log('windowManager.createMain called')
 
     mainWindow = new BrowserWindow({
-      title: 'Quizz Main Window',
+      title: 'Quizzacious',
       width: 600,
       height: 600,
       minWidth: 440,
       minHeight: 500,
       x: 0,
       y: 0,
-      devTools: true,
+      //devTools: true,
       show: false
     })
     mainWindow.setMenu(null)
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
     mainWindow.loadURL('file://' + path.resolve(__dirname, 'windows/mainWindow/index.html'))
 
     mainWindow.once('ready-to-show', () => {
@@ -112,6 +112,17 @@ console.log('windowManager loaded')
         mainModal.show()
       })
     }
+    // Modal Set Points
+    function modalSetPoints(teamObj){
+      createMainModal()
+      mainModal.loadURL('file://' + path.resolve(__dirname, 'windows/mainModal/setPoints.html'))
+
+      mainModal.once('ready-to-show', () =>{
+        mainModal.send('teamObj', teamObj)
+        mainModal.show()
+      })
+    }
+
 
     // Modal Reduce Points
     function modalReducePoints(teamObj){

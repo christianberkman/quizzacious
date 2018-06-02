@@ -10,7 +10,7 @@ console.log('teamManager loaded')
 //
   module.exports = {
     addTeam, getTeamObj,
-    addPoints, reducePoints
+    addPoints, setPoints, reducePoints
   }
 
 //
@@ -89,6 +89,27 @@ console.log('teamManager loaded')
       var teamObj = teams[teamId]
       if(teamObj === undefined) return false
       teamObj.points += points
+      teams[teamObj.id] = teamObj
+
+    // Notify windows
+      windowManager.sendMain('team-updated', teams[teamId])
+
+    // Done
+    return true
+  }
+
+  // Set Points
+  function setPoints(teamId, points){
+    //console.log('teamManager.setPoints called')
+
+    // Input
+      points = parseInt(points)
+      if(Number.isInteger(points) == false) return false
+
+    // Retrieve Team Object
+      var teamObj = teams[teamId]
+      if(teamObj === undefined) return false
+      teamObj.points = points
       teams[teamObj.id] = teamObj
 
     // Notify windows
