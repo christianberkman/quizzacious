@@ -14,7 +14,8 @@ console.log('windowManager loaded')
 //
   module.exports = {
     createMain, sendMain, closeMain,
-    closeMainModal, modalAddPoints, modalSetPoints, modalReducePoints
+    closeMainModal, modalAddPoints, modalSetPoints, modalReducePoints,
+    createExternal
   }
 
 //
@@ -131,4 +132,44 @@ console.log('windowManager loaded')
         mainModal.send('teamObj', teamObj)
         mainModal.show()
       })
+    }
+
+  //
+  //  External Window
+  //
+    let externalWindow
+    externalWindow = null
+
+    // Create Main Window
+    function createExternal(){
+      console.log('windowManager.createExternal called')
+
+      externalWindow = new BrowserWindow({
+        title: 'Quizzacious External Window',
+        width: 300,
+        height: 300,
+        x: 480,
+        y: 0,
+        devTools: true,
+        show: false
+      })
+      externalWindow.setMenu(null)
+      if(debugMode) externalWindow.webContents.openDevTools()
+      externalWindow.loadURL('file://' + path.resolve(__dirname, 'windows/externalWindow/index.html'))
+
+      externalWindow.once('ready-to-show', () => {
+        externalWindow.show()
+      })
+    }
+
+    // Send to Main Window
+    function sendMain(eventName, ...args){
+      mainWindow.send(eventName, args)
+    }
+
+    // Close Main window
+    function closeMain(){
+      console.log('windowManager.closeMain called')
+      mainWindow.close()
+      mainWindow = null
     }

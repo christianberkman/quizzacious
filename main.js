@@ -18,6 +18,7 @@
   app.on('ready', function () {
     console.log('App Ready')
     windowManager.createMain()
+    windowManager.createExternal()
   })
 
 //
