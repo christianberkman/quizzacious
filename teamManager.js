@@ -24,13 +24,10 @@ console.log('teamManager loaded')
 //
   // Create a new team object
   function createTeamObj(id, name = "New Team", points = 0){
-    //console.log('teamManager.create called')
     var teamObj = {}
     teamObj.id = id
     teamObj.name = name.substring(0, 24)
     teamObj.points = points
-
-    console.log("New Team: " + teamObj.name)
 
     // Return the object
     return teamObj
@@ -44,8 +41,6 @@ console.log('teamManager loaded')
 
   // Get the team object from the array
   function getTeamObj(teamId){
-    //console.log("teamManager.getTeamObj called")
-
     // Check if team exists
     if(teamExists(teamId) == false) return false
 
@@ -56,8 +51,6 @@ console.log('teamManager loaded')
 
   // Add team object to array
   function addTeam(name = "New Team", points = 0){
-    //console.log('teamManager.addTeam called')
-
     // Input
     if(!name) return false
     points = parseInt(points)
@@ -69,6 +62,7 @@ console.log('teamManager loaded')
 
     // Notify windows
     windowManager.sendMain('team-created', newTeam)
+    console.log('New Team: ' + newTeam.name + ' (' + newTeam.id +')')
 
     // Return Id
     return newTeam.id
@@ -79,8 +73,6 @@ console.log('teamManager loaded')
 //
   // Add Points
   function addPoints(teamId, points){
-    //console.log('teamManager.addPoints called')
-
     // Input
       points = parseInt(points)
       if(Number.isInteger(points) == false) return false
@@ -100,8 +92,6 @@ console.log('teamManager loaded')
 
   // Set Points
   function setPoints(teamId, points){
-    //console.log('teamManager.setPoints called')
-
     // Input
       points = parseInt(points)
       if(Number.isInteger(points) == false) return false
@@ -121,8 +111,6 @@ console.log('teamManager loaded')
 
   // Reduce Points
   function reducePoints(teamId, points){
-    //console.log('teamManager.reducePoints called')
-
     // Input
       points = parseInt(points)
       if(Number.isInteger(points) == false) return false

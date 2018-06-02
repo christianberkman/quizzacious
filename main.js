@@ -9,6 +9,7 @@
   // Quizz
   global.windowManager = require('./windowManager')
   global.teamManager = require('./teamManager')
+  global.debugMode = true
 
 //
 // App Ready

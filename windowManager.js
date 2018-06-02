@@ -35,11 +35,11 @@ console.log('windowManager loaded')
       minHeight: 500,
       x: 0,
       y: 0,
-      //devTools: true,
+      devTools: true,
       show: false
     })
     mainWindow.setMenu(null)
-    //mainWindow.webContents.openDevTools()
+    if(debugMode) mainWindow.webContents.openDevTools()
     mainWindow.loadURL('file://' + path.resolve(__dirname, 'windows/mainWindow/index.html'))
 
     mainWindow.once('ready-to-show', () => {
@@ -49,13 +49,12 @@ console.log('windowManager loaded')
 
   // Send to Main Window
   function sendMain(eventName, ...args){
-    console.log('windowManager.sendMain called')
     mainWindow.send(eventName, args)
   }
 
   // Close Main window
   function closeMain(){
-    //console.log('windowManager.closeMain called')
+    console.log('windowManager.closeMain called')
     mainWindow.close()
     mainWindow = null
   }
@@ -80,7 +79,7 @@ console.log('windowManager loaded')
         show: false
       })
       mainModal.setMenu(null)
-      //mainModal.openDevTools()
+      if(debugMode) mainModal.openDevTools()
 
       // Show when ready
       mainModal.once('ready-to-show', () => {
@@ -90,7 +89,6 @@ console.log('windowManager loaded')
 
     // Send to Main Modal
     function sendMainModal(eventName, ...args){
-      console.log('windowManager.sendMain called')
       mainModal.once('ready-to-show', () => {
         mainModal.send(eventName, args)
       })
