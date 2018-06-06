@@ -9,7 +9,7 @@
   // Quizz
   global.windowManager = require('./windowManager')
   global.teamManager = require('./teamManager')
-  global.debugMode = true
+  global.debugMode = false
 
 //
 // App Ready
@@ -17,8 +17,17 @@
 
   app.on('ready', function () {
     console.log('App Ready')
+
+    // Open windows
     windowManager.createMain()
     windowManager.createExternal()
+
+    // Create Teams (debug)
+    if(debugMode){
+      teamManager.addTeam('Katie and Christian')
+      teamManager.addTeam('The World')
+      teamManager.addTeam('Aliens')
+    }
   })
 
 //

@@ -9,7 +9,7 @@ console.log('teamManager loaded')
 //  Module exports
 //
   module.exports = {
-    addTeam, getTeamObj,
+    getTeamObj, getTeamArray, addTeam,
     addPoints, setPoints, reducePoints
   }
 
@@ -49,6 +49,11 @@ console.log('teamManager loaded')
     return teamObj
   }
 
+  // Get the team array
+  function getTeamArray(){
+    return teams;
+  }
+
   // Add team object to array
   function addTeam(name = "New Team", points = 0){
     // Input
@@ -62,6 +67,7 @@ console.log('teamManager loaded')
 
     // Notify windows
     windowManager.sendMain('team-created', newTeam)
+    windowManager.sendExternal('team-created', newTeam)
     console.log('New Team: ' + newTeam.name + ' (' + newTeam.id +')')
 
     // Return Id
@@ -78,13 +84,14 @@ console.log('teamManager loaded')
       if(Number.isInteger(points) == false) return false
 
     // Retrieve Team Object
-      var teamObj = teams[teamId]
-      if(teamObj === undefined) return false
-      teamObj.points += points
-      teams[teamObj.id] = teamObj
+    var teamObj = teams[teamId]
+    if(teamObj === undefined) return false
+    teamObj.points += points
+    teams[teamObj.id] = teamObj
 
     // Notify windows
-      windowManager.sendMain('team-updated', teams[teamId])
+    windowManager.sendMain('team-updated', teams[teamId])
+    windowManager.sendExternal('team-updated', teams[teamId])
 
     // Done
     return true
@@ -93,17 +100,18 @@ console.log('teamManager loaded')
   // Set Points
   function setPoints(teamId, points){
     // Input
-      points = parseInt(points)
-      if(Number.isInteger(points) == false) return false
+    points = parseInt(points)
+    if(Number.isInteger(points) == false) return false
 
     // Retrieve Team Object
-      var teamObj = teams[teamId]
-      if(teamObj === undefined) return false
-      teamObj.points = points
-      teams[teamObj.id] = teamObj
+    var teamObj = teams[teamId]
+    if(teamObj === undefined) return false
+    teamObj.points = points
+    teams[teamObj.id] = teamObj
 
     // Notify windows
-      windowManager.sendMain('team-updated', teams[teamId])
+    windowManager.sendMain('team-updated', teams[teamId])
+    windowManager.sendExternal('team-updated', teams[teamId])
 
     // Done
     return true
@@ -112,17 +120,18 @@ console.log('teamManager loaded')
   // Reduce Points
   function reducePoints(teamId, points){
     // Input
-      points = parseInt(points)
-      if(Number.isInteger(points) == false) return false
+    points = parseInt(points)
+    if(Number.isInteger(points) == false) return false
 
     // Retrieve Team Object
-      var teamObj = teams[teamId]
-      if(teamObj === undefined) return false
-      teamObj.points -= points
-      teams[teamObj.id] = teamObj
+    var teamObj = teams[teamId]
+    if(teamObj === undefined) return false
+    teamObj.points -= points
+    teams[teamObj.id] = teamObj
 
     // Notify windows
-      windowManager.sendMain('team-updated', teams[teamId])
+    windowManager.sendMain('team-updated', teams[teamId])
+    windowManager.sendExternal('team-updated', teams[teamId])
 
     // Done
     return true

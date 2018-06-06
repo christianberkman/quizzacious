@@ -83,10 +83,3 @@ $('.add-points').click(function(){
   teamObj = teamManager.getTeamObj(teamId)
   windowManager.modalAddPoints(teamObj)
 })
-
-//
-// Debug
-//
-teamManager.addTeam('Katie and Christian')
-teamManager.addTeam('The World')
-teamManager.addTeam('Aliens')

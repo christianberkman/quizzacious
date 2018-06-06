@@ -15,7 +15,7 @@ console.log('windowManager loaded')
   module.exports = {
     createMain, sendMain, closeMain,
     closeMainModal, modalAddPoints, modalSetPoints, modalReducePoints,
-    createExternal
+    createExternal, sendExternal
   }
 
 //
@@ -162,9 +162,9 @@ console.log('windowManager loaded')
       })
     }
 
-    // Send to Main Window
-    function sendMain(eventName, ...args){
-      mainWindow.send(eventName, args)
+    // Send to External Window
+    function sendExternal(eventName, ...args){
+      externalWindow.send(eventName, args)
     }
 
     // Close Main window
