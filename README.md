@@ -8,7 +8,8 @@ Working as a missionary at an NGO in Uganda we sometimes host quizzes. I was loo
 ### What is Working
 * Can dynamically create teams from main screen
 * Main screen displays teams and displays points
-* Points can be added and reduced from Main Screen Modals, points are updated instantly
+* Points can be added, reduced and set from Main Screen Modals, points are updated instantly
+* External Screen shows teams and points in a 2xN grid
 
 ### What is not working
 * Small gui-design flaws
@@ -16,9 +17,10 @@ Working as a missionary at an NGO in Uganda we sometimes host quizzes. I was loo
 
 ### What will work
 * ~~Reducing points from main screen~~ done
-* Setting points from main screen
+* ~~Setting points from main screen~~ done
 * Removing team from main screen
-* External screen
+* ~~External screen~~ done, has basic functionality
+* External screen dynamic layout depending on number of teams
 
 ### Future dreams
 * Multiple scoreboard layouts
