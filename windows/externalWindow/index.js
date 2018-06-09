@@ -17,13 +17,15 @@
   teamArray.forEach(function(teamObj){
     renderNewTeam(teamObj)
     updateTeam(teamObj)
-    fitAll()
   })
+  fitAll()
+  dynamicCSS()
 
   ipcRenderer.on('team-created', function(events, args){
     renderNewTeam(args[0])
     updateTeam(args[0])
     fitAll()
+    dynamicCSS()
   })
 
   ipcRenderer.on('team-updated', function(events, args){
@@ -58,6 +60,15 @@
 //
 // Functions
 //
+  function dynamicCSS(){
+    // Dynapic CSS
+    var teamCount = teamManager.getTeamArray().length
+
+    if(teamCount <= 2) $('#dynCSS').attr('href', './2x1.css');
+    if(teamCount > 2 && teamCount <= 4) $('#dynCSS').attr('href', './2x2.css');
+    if(teamCount > 4 && teamCount <= 9) $('#dynCSS').attr('href', './3x3.css');
+  }
+
   function fitAll(){
     $('.fit').fitText(0.9)
     $('.fit-bigger').fitText(0.45)

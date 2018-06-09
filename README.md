@@ -20,7 +20,7 @@ Working as a missionary at an NGO in Uganda we sometimes host quizzes. I was loo
 * ~~Setting points from main screen~~ done
 * Removing team from main screen
 * ~~External screen~~ done, has basic functionality
-* External screen dynamic layout depending on number of teams
+* ~~External screen dynamic layout depending on number of teams~~
 
 ### Future dreams
 * Multiple scoreboard layouts
