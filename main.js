@@ -17,6 +17,11 @@
   if(debugArg == "debug") global.debugMode = true
 
 //
+//  Module exports
+//
+  module.exports = { debugMode }
+
+//
 // App Ready
 //
 
@@ -54,3 +59,7 @@
       createWindow()
     }
   })
+
+//
+// Debug
+//

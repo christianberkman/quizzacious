@@ -14,6 +14,13 @@
   // Ready
   $('#addTeamName').focus()
 
+  // Render all teams
+  teamArray = teamManager.getTeamArray()
+  teamArray.forEach(function(teamObj){
+    renderNewTeam(teamObj)
+    updateTeam(teamObj)
+  })
+
   ipcRenderer.on('team-created', function(events, args){
     renderNewTeam(args[0])
     updateTeam(args[0])
