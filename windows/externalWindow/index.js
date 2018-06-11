@@ -62,11 +62,13 @@
 //
   function dynamicCSS(){
     // Dynapic CSS
-    var teamCount = teamManager.getTeamArray().length
+    var teamCount = teamManager.teamCount()
 
     if(teamCount <= 2) $('#dynCSS').attr('href', './2x1.css');
     if(teamCount > 2 && teamCount <= 4) $('#dynCSS').attr('href', './2x2.css');
     if(teamCount > 4 && teamCount <= 9) $('#dynCSS').attr('href', './3x3.css');
+    if(teamCount > 9 && teamCount <= 16) $('#dynCSS').attr('href', './4x4.css');
+    if(teamCount > 16) $('#dynCSS').attr('href', './5x5.css');
   }
 
   function fitAll(){

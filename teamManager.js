@@ -9,7 +9,7 @@ console.log('teamManager loaded')
 //  Module exports
 //
   module.exports = {
-    getTeamObj, getTeamArray, addTeam,
+    getTeamObj, getTeamArray, addTeam, countTeams,
     addPoints, setPoints, reducePoints
   }
 
@@ -72,6 +72,17 @@ console.log('teamManager loaded')
 
     // Return Id
     return newTeam.id
+  }
+
+  // Count teams
+  function countTeams(){
+    var teamCount = 0
+
+    teams.forEach(function(teamObj){
+      if(typeof teamObj == 'object') teamCount++
+    })
+
+    return teamCount
   }
 
 //
