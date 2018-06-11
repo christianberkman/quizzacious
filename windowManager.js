@@ -39,8 +39,8 @@ console.log('windowManager loaded')
       devTools: true,
       show: false
     })
-    mainWindow.setMenu(null)
-    if(debugMode) mainWindow.webContents.openDevTools()
+    if(!debugMode) mainWindow.setMenu(null)
+    if(debugMode)mainWindow.webContents.openDevTools()
     mainWindow.loadURL('file://' + path.resolve(__dirname, 'windows/mainWindow/index.html'))
 
     mainWindow.once('ready-to-show', () => {
@@ -153,7 +153,7 @@ console.log('windowManager loaded')
         devTools: true,
         show: false
       })
-      externalWindow.setMenu(null)
+      if(!debugMode) externalWindow.setMenu(null)
       if(debugMode) externalWindow.webContents.openDevTools()
       externalWindow.loadURL('file://' + path.resolve(__dirname, 'windows/externalWindow/index.html'))
 
