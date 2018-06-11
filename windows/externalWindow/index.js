@@ -62,7 +62,7 @@
 //
   function dynamicCSS(){
     // Dynapic CSS
-    var teamCount = teamManager.teamCount()
+    var teamCount = teamManager.countTeams()
 
     if(teamCount <= 2) $('#dynCSS').attr('href', './2x1.css');
     if(teamCount > 2 && teamCount <= 4) $('#dynCSS').attr('href', './2x2.css');
