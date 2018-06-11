@@ -9,7 +9,12 @@
   // Quizz
   global.windowManager = require('./windowManager')
   global.teamManager = require('./teamManager')
+
+  // Debug mode?
   global.debugMode = false
+  var args = process.argv
+  debugArg = args[2]
+  if(debugArg == "debug") global.debugMode = true
 
 //
 // App Ready
