@@ -1,40 +1,44 @@
 <html>
   <body>
     <head>
-      <link href="../../assets/bootstrap.min.css" rel="stylesheet" />
-      <link href="../../assets/quizz.css" rel="stylesheet" />
+      <link href="./index.css" rel="stylesheet" />
       <link href="../../assets/font-awesome.min.css" rel="stylesheet" />
     </head>
     <body>
 
-      <div class="container-fluid">
-        <h1 class="display-3 text-center">Quizzacious</h1>
-      </div>
+      <header>
+        <h1>Quizzacious</h1>
+      </header>
 
-      <div class="container-fluid">
+      <section class="addTeam">
         <form id="addTeam" action="#" class="form text-center">
-
             <input id="addTeamName" class="form-control-lg text-center" maxlength="24"/>
-            <input type="submit" class="btn btn-lg btn-success ml-1" style="margin-top: -5px" value="Add Team" />
-
+            <button type="submit"><i class="fa fa-plus"></i></button>
         </form>
-      </div>
+      </section>
 
-      <div class="container-fluid">
-        <div id="teams" class="row">
-          <div id="teamProto" class="team col-md-5 col-lg-4 mb-3">
-            <div class="bg-primary p-3">
-              <h3 class="text-center">Team Name</h3>
-              <h4 class="text-center"><span>0</span> Points</h4>
-              <div class="text-center">
-                <a href="#" class="btn btn-lg btn-danger reduce-points"><i class="fa fa-minus"></i></a>&nbsp;
-                <a href="#" class="btn btn-lg btn-primary border-white set-points">set</a>&nbsp;
-                <a href="#" class="btn btn-lg btn-success add-points"><i class="fa fa-plus"></i></a>
-              </div>
+      <section id="teams">
+        <div id="teamProto" class="team">
+          <h2>Team Name</h2>
+          <div class="points">
+            <div>
+              <button class="reduce-points">
+                <i class="fa fa-minus"></i>
+              </button>
             </div>
+            <div>
+              <h3>1000000</h3>
+            </div>
+            <div>
+              <button class="add-points">
+                <i class="fa fa-plus"></i>
+              </button>
           </div>
-        </div><!--/row-->
-      </div><!--/container-fluid-->
+        </div>
+        <div class="settings">
+          <button class="set-points"><strong>set points</strong></button>
+        </div>
+      </section>
     </body>
 </html>
 <script>require('./index')</script>

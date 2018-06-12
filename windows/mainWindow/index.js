@@ -66,8 +66,8 @@
 
   // Update team
   function updateTeam(teamObj){
-    $(`#team${teamObj.id} h3`).html(teamObj.name)
-    $(`#team${teamObj.id} h4 span`).html(teamObj.points)
+    $(`#team${teamObj.id} h2`).html(teamObj.name)
+    $(`#team${teamObj.id} h3`).html(teamObj.points)
   }
 
 //
