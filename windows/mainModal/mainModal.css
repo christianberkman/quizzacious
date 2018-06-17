@@ -1,0 +1,66 @@
+/* Big elements */
+html, body{
+  width: 100%; height: 100%;
+  margin: 0; padding: 0;
+
+  background: #222;
+  color: #DDD;
+
+  font-family: Ubuntu, -apple-system, "Segoe UI", sans-serif;
+}
+
+body.reduce{
+  background: #E74C3C;
+}
+body.add{
+  background: #00bc8c;
+}
+
+/* General */
+input, button{
+  font-family: Ubuntu, -apple-system, "Segoe UI", sans-serif;
+}
+
+input:focus{
+  outline: none;
+}
+
+button{
+  padding: 0.5rem;
+  margin: 0.5rem;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 20pt;
+}
+
+/* Main Section and Div */
+section{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  justify-content: center;
+  align-items: center;
+}
+  section div{
+    text-align: center;
+    height: auto;
+  }
+
+/* Form */
+input{
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 10px;
+
+  font-size: 20pt;
+  text-align: center;
+}
+p a{
+  color: #FFF;
+  text-decoration: none;
+}

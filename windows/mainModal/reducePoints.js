@@ -24,12 +24,12 @@
 
   // Form Submit
   $('form').submit(function(){
-    // Reduce the points
+    // Set the points
       reducePoints = $('#reducePoints').val()
-      reduceSuccess = teamManager.reducePoints(teamObj.id, reducePoints)
+      setSuccess = teamManager.reducePoints(teamObj.id, reducePoints)
 
     // Success? Close Modal
-    if(reduceSuccess){
+    if(setSuccess){
       windowManager.closeMainModal()
       return false;
     }
@@ -48,5 +48,5 @@
   // Render team
   function renderTeam(){
     $('h2').html(teamObj.name)
-    $('h4 .points').html(teamObj.points)
+    $('h4 > span').html(teamObj.points)
   }

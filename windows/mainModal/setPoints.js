@@ -48,5 +48,5 @@
   // Render team
   function renderTeam(){
     $('h2').html(teamObj.name)
-    $('h4 .points').html(teamObj.points)
+    $('h4 > span').html(teamObj.points)
   }

@@ -75,11 +75,11 @@ console.log('windowManager loaded')
         frame: false,
         title: '',
         width: 400,
-        height: 220,
+        height: 225,
         resizeable: false,
         show: false
       })
-      mainModal.setMenu(null)
+      if(!debugMode) mainModal.setMenu(null)
       if(debugMode) mainModal.openDevTools()
 
       // Show when ready

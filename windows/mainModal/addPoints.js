@@ -24,12 +24,12 @@
 
   // Form Submit
   $('form').submit(function(){
-    // Add the points
+    // Set the points
       addPoints = $('#addPoints').val()
-      addSuccess = teamManager.addPoints(teamObj.id, addPoints)
+      setSuccess = teamManager.addPoints(teamObj.id, addPoints)
 
     // Success? Close Modal
-    if(addSuccess){
+    if(setSuccess){
       windowManager.closeMainModal()
       return false;
     }
@@ -48,12 +48,5 @@
   // Render team
   function renderTeam(){
     $('h2').html(teamObj.name)
-    $('h4 .points').html(teamObj.points)
+    $('h4 > span').html(teamObj.points)
   }
-
-//
-// Debug
-//
-$('h2').click(function(){
-  windowManager.closeMainModal()
-})
