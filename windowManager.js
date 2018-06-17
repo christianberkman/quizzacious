@@ -8,6 +8,8 @@ console.log('windowManager loaded')
   var BrowserWindow = electron.BrowserWindow
   var path = require('path')
   var ipcMain = electron.ipcMain
+  const {dialog} = require('electron')
+
 
 //
 //  Module exports
@@ -23,11 +25,13 @@ console.log('windowManager loaded')
 //
   let mainWindow
   mainWindow = null
+  showExitPrompt = true
 
   // Create Main Window
   function createMain(){
     console.log('windowManager.createMain called')
 
+    // Create window
     mainWindow = new BrowserWindow({
       title: 'Quizzacious',
       width: 600,
@@ -43,8 +47,30 @@ console.log('windowManager loaded')
     if(debugMode)mainWindow.webContents.openDevTools()
     mainWindow.loadURL('file://' + path.resolve(__dirname, 'windows/mainWindow/index.html'))
 
+    // Show Window
     mainWindow.once('ready-to-show', () => {
       mainWindow.show()
+    })
+
+    // Close event
+    mainWindow.on('close', (e) => {
+        if(showExitPrompt)
+        {
+          e.preventDefault() // Prevents the window from closing
+          dialog.showMessageBox({
+              type: 'question',
+              buttons: ['Yes', 'No'],
+              title: 'Confirm',
+              message: 'Closing the main window will cause Quizzacious to quit. Are you sure?'
+          }, function (response) {
+            console.log(response)
+              if (response === 0) { // Runs the following if 'Yes' is clicked
+                  showExitPrompt = false
+                  mainWindow.close()
+                  app.quit()
+              }
+          })
+      }
     })
   }
 
