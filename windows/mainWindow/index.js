@@ -30,6 +30,11 @@
     updateTeam(args[0])
   })
 
+  // Closed External
+  ipcRenderer.on('closed-external', function(){
+    $('#createExternal').show()
+  })
+
 //
 // Add Team
 //
@@ -89,4 +94,12 @@ $('.add-points').click(function(){
   teamId = $(this).closest('.team').data('id')
   teamObj = teamManager.getTeamObj(teamId)
   windowManager.modalAddPoints(teamObj)
+})
+
+//
+// External Window
+//
+$('#createExternal').click(function(){
+  windowManager.createExternal()
+  $(this).hide()
 })

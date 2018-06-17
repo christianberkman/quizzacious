@@ -26,6 +26,10 @@ button{
   border-radius: 5px;
 }
 
+a{
+  color: #999;
+}
+
 /* Header */
 header{
   width: 100%;
@@ -71,6 +75,10 @@ section.addteam{
     color: #FFF;
     text-align: center;
     background: #00bc8c;
+  }
+
+  a#createExternal{
+    display: none;
   }
 
 /* Teams */

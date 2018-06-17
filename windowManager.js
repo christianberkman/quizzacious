@@ -170,6 +170,10 @@ console.log('windowManager loaded')
     function createExternal(){
       console.log('windowManager.createExternal called')
 
+      // One externalWindow only!
+      if(externalWindow != null) return false
+
+      // Create External Window
       externalWindow = new BrowserWindow({
         title: 'Quizzacious External Window',
         width: 300,
@@ -183,8 +187,14 @@ console.log('windowManager loaded')
       if(debugMode) externalWindow.webContents.openDevTools()
       externalWindow.loadURL('file://' + path.resolve(__dirname, 'windows/externalWindow/index.html'))
 
+      // Events
       externalWindow.once('ready-to-show', () => {
         externalWindow.show()
+      })
+
+      externalWindow.on('close', function(){
+        sendMain('closed-external')
+        externalWindow = null
       })
     }
 
